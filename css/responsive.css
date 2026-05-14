@@ -1,0 +1,381 @@
+/* ===================================
+   TIENDA DOÑA ELENA - RESPONSIVE
+   =================================== */
+
+/* Large Devices (Desktops, 992px and up) */
+@media (max-width: 1199px) {
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .pricing-card.featured {
+        transform: scale(1);
+    }
+}
+
+/* Medium Devices (Tablets, 768px to 991px) */
+@media (max-width: 991px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-padding {
+        padding: 4rem 0;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .navbar .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Small Devices (Landscape phones, 576px to 767px) */
+@media (max-width: 767px) {
+    /* Typography */
+    h1, .hero-title {
+        font-size: 2rem !important;
+    }
+    
+    h2 {
+        font-size: 1.75rem !important;
+    }
+    
+    h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Navigation */
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+    }
+    
+    /* Features */
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-image {
+        order: -1;
+    }
+    
+    /* Pricing */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .pricing-card {
+        margin-bottom: 2rem;
+    }
+    
+    /* Testimonials */
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Stats */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* FAQ */
+    .faq-item {
+        margin-bottom: 1rem;
+    }
+    
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+    
+    /* Spacing */
+    .section-padding {
+        padding: 2.5rem 0;
+    }
+    
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Cards */
+    .card {
+        padding: 1.5rem;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    /* Images */
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Extra Small Devices (Portrait phones, less than 576px) */
+@media (max-width: 575px) {
+    /* Typography */
+    h1, .hero-title {
+        font-size: 1.75rem !important;
+        line-height: 1.2;
+    }
+    
+    h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    p {
+        font-size: 0.95rem;
+    }
+    
+    /* Hero */
+    .hero-badge {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Navigation */
+    .navbar {
+        padding: 0.75rem 0;
+    }
+    
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+    
+    .navbar-brand i {
+        font-size: 1.5rem;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.95rem;
+    }
+    
+    .btn-lg {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    /* Cards */
+    .card {
+        padding: 1.25rem;
+        border-radius: 0.75rem;
+    }
+    
+    /* Icons */
+    .icon-lg {
+        font-size: 2.5rem;
+    }
+    
+    .icon-xl {
+        font-size: 3rem;
+    }
+    
+    /* Spacing */
+    .section-padding {
+        padding: 2rem 0;
+    }
+    
+    .py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    /* Grid */
+    .row {
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
+    }
+    
+    [class*="col-"] {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+    
+    /* Testimonials */
+    .testimonial-text {
+        font-size: 0.95rem;
+    }
+    
+    /* Pricing */
+    .pricing-amount {
+        font-size: 2.5rem;
+    }
+    
+    .pricing-period {
+        font-size: 1rem;
+    }
+    
+    /* Footer */
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    /* Utilities */
+    .text-center-mobile {
+        text-align: center !important;
+    }
+    
+    .flex-column-mobile {
+        flex-direction: column !important;
+    }
+    
+    .gap-2-mobile {
+        gap: 0.5rem !important;
+    }
+}
+
+/* Touch Devices */
+@media (hover: none) and (pointer: coarse) {
+    /* Increase touch targets */
+    .btn, 
+    a, 
+    button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .card:hover {
+        transform: none;
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+    
+    /* Increase font sizes slightly for readability */
+    body {
+        font-size: 17px;
+    }
+}
+
+/* High DPI / Retina Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+    
+    img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    /* Uncomment if you want to support dark mode */
+    /*
+    body {
+        background-color: #1a1a1a;
+        color: #ffffff;
+    }
+    
+    .card {
+        background-color: #2d2d2d;
+        border-color: #404040;
+    }
+    
+    .navbar {
+        background-color: rgba(26, 26, 26, 0.95);
+    }
+    */
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+    }
+    
+    a {
+        text-decoration: underline;
+        color: black;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    .section-padding {
+        padding: 1rem 0;
+    }
+}
+
+/* Landscape Mode on Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        min-height: auto;
+        padding: 6rem 0 2rem;
+    }
+    
+    .navbar {
+        padding: 0.5rem 0;
+    }
+    
+    .section-padding {
+        padding: 2rem 0;
+    }
+}
+
+/* Large Screens (4K and above) */
+@media (min-width: 2560px) {
+    .container {
+        max-width: 2000px;
+    }
+    
+    html {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda Doña Elena - Sistema de gestión inteligente para minimarkets con IA predictiva">
+    <meta name="keywords" content="minimarket, gestión, inventario, IA, machine learning, POS">
+    <meta property="og:title" content="Tienda Doña Elena - Gestión Inteligente para Minimarkets">
+    <meta property="og:description" content="Transforma tu minimarket con inteligencia artificial y predicción de ventas">
+    <meta property="og:type" content="website">
+    <title>Tienda Doña Elena | Gestión Inteligente para Minimarkets</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E88E5',
+                        secondary: '#43A047',
+                        accent: '#FFA726',
+                        dark: '#263238',
+                        light: '#FAFAFA'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-dark bg-light antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="fas fa-store text-3xl text-primary"></i>
+                    <span class="font-bold text-2xl text-dark">Tienda Doña Elena</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#caracteristicas" class="text-gray-600 hover:text-primary transition-colors font-medium">Características</a>
+                    <a href="#como-funciona" class="text-gray-600 hover:text-primary transition-colors font-medium">Cómo Funciona</a>
+                    <a href="#precios" class="text-gray-600 hover:text-primary transition-colors font-medium">Precios</a>
+                    <a href="#testimonios" class="text-gray-600 hover:text-primary transition-colors font-medium">Testimonios</a>
+                    <a href="#faq" class="text-gray-600 hover:text-primary transition-colors font-medium">FAQ</a>
+                    <button class="bg-primary text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        Prueba Gratis
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#caracteristicas" class="block px-3 py-2 text-gray-600 hover:text-primary hover:bg-blue-50 rounded-md">Características</a>
+                <a href="#como-funciona" class="block px-3 py-2 text-gray-600 hover:text-primary hover:bg-blue-50 rounded-md">Cómo Funciona</a>
+                <a href="#precios" class="block px-3 py-2 text-gray-600 hover:text-primary hover:bg-blue-50 rounded-md">Precios</a>
+                <a href="#testimonios" class="block px-3 py-2 text-gray-600 hover:text-primary hover:bg-blue-50 rounded-md">Testimonios</a>
+                <a href="#faq" class="block px-3 py-2 text-gray-600 hover:text-primary hover:bg-blue-50 rounded-md">FAQ</a>
+                <button class="w-full mt-4 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all">
+                    Prueba Gratis
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-green-50 opacity-70"></div>
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left" data-animate="fade-in-up">
+                    <div class="inline-block bg-blue-100 text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
+                        🚀 +500 minimarkets ya transformados
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+                        Transforma tu minimarket en un negocio 
+                        <span class="text-primary">inteligente</span> que predice el futuro
+                    </h1>
+                    <p class="text-lg lg:text-xl text-gray-600 mb-8 leading-relaxed">
+                        Tienda Doña Elena combina gestión de inventarios en tiempo real con 
+                        inteligencia artificial para anticipar tus ventas, optimizar compras y 
+                        eliminar las pérdidas por productos vencidos.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center justify-center gap-2">
+                            Digitaliza tu tienda hoy
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="bg-white text-primary border-2 border-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-all flex items-center justify-center gap-2">
+                            <i class="fas fa-play-circle"></i>
+                            Ver Demo
+                        </button>
+                    </div>
+                    <div class="mt-6 flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-500">
+                        <span class="flex items-center gap-1"><i class="fas fa-check text-secondary"></i> Prueba gratis 14 días</span>
+                        <span class="flex items-center gap-1"><i class="fas fa-check text-secondary"></i> Sin tarjeta</span>
+                        <span class="flex items-center gap-1"><i class="fas fa-check text-secondary"></i> Cancela cuando quieras</span>
+                    </div>
+                </div>
+                <div class="relative" data-animate="fade-in-up" data-delay="200">
+                    <div class="relative bg-white rounded-2xl shadow-2xl p-6 transform hover:scale-105 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop" 
+                             alt="Dashboard Tienda Doña Elena" 
+                             class="rounded-xl w-full object-cover">
+                        <div class="absolute -top-4 -right-4 bg-secondary text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="font-semibold">+40% ventas</span>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 bg-primary text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2">
+                            <i class="fas fa-robot"></i>
+                            <span class="font-semibold">IA Predictiva</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="py-12 bg-white border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-gray-500 mb-8 font-medium">Confían en nosotros</p>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex justify-center items-center h-12 bg-gray-200 rounded-lg">
+                    <span class="font-bold text-xl">Minimarket A</span>
+                </div>
+                <div class="flex justify-center items-center h-12 bg-gray-200 rounded-lg">
+                    <span class="font-bold text-xl">Tienda B</span>
+                </div>
+                <div class="flex justify-center items-center h-12 bg-gray-200 rounded-lg">
+                    <span class="font-bold text-xl">Super C</span>
+                </div>
+                <div class="flex justify-center items-center h-12 bg-gray-200 rounded-lg">
+                    <span class="font-bold text-xl">Market D</span>
+                </div>
+                <div class="flex justify-center items-center h-12 bg-gray-200 rounded-lg">
+                    <span class="font-bold text-xl">Shop E</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-animate="fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">¿Te suena familiar?</h2>
+                <p class="text-lg text-gray-600">Los dueños de minimarkets enfrentan estos problemas todos los días</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-animate="fade-in-up" data-delay="0">
+                    <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-trash-alt text-3xl text-red-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pérdidas por productos vencidos</h3>
+                    <p class="text-gray-600">"¿Cuántas veces has tenido que botar productos que no se vendieron a tiempo?"</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-animate="fade-in-up" data-delay="100">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-boxes text-3xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Stock innecesario</h3>
+                    <p class="text-gray-600">"Compras de más 'por si acaso' y inmovilizas dinero que podrías usar mejor"</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-animate="fade-in-up" data-delay="200">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-question-circle text-3xl text-purple-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Decisiones a ciegas</h3>
+                    <p class="text-gray-600">"Sin datos claros, tus decisiones de compra se basan en intuición, no en información"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="caracteristicas" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-animate="fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Todo lo que necesitas para modernizar tu tienda</h2>
+                <p class="text-lg text-gray-600">Herramientas poderosas con una interfaz tan simple que la usarás desde el primer día</p>
+            </div>
+
+            <!-- Feature 1 -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                <div class="order-2 lg:order-1" data-animate="fade-in-right">
+                    <div class="bg-blue-50 p-8 rounded-2xl">
+                        <i class="fas fa-box-open text-6xl text-primary mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-4">Gestión Inteligente de Inventarios</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Olvídate del lápiz y papel. Organiza todos tus productos, proveedores y 
+                            stock en un solo lugar con actualizaciones en tiempo real. Escanea códigos 
+                            de barra, registra entradas y salidas en segundos.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>Registro rápido con lector de código de barras</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>Control de fechas de vencimiento</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>Múltiples proveedores por producto</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>Historial completo de movimientos</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2" data-animate="fade-in-left">
+                    <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&h=600&fit=crop" 
+                         alt="Gestión de Inventarios" 
+                         class="rounded-2xl shadow-2xl w-full">
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                <div data-animate="fade-in-right">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" 
+                         alt="Inteligencia Artificial" 
+                         class="rounded-2xl shadow-2xl w-full">
+                </div>
+                <div data-animate="fade-in-left">
+                    <div class="bg-green-50 p-8 rounded-2xl">
+                        <div class="inline-block bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold mb-4">
+                            ⭐ Función Estrella
+                        </div>
+                        <i class="fas fa-brain text-6xl text-secondary mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-4">Predicción de Demanda con IA</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            No es magia, es Machine Learning. Nuestro sistema analiza tus ventas 
+                            históricas para decirte EXACTAMENTE qué productos comprar y en qué cantidad.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>Alertas de compra inteligentes</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>Predicción de ventas semanales y mensuales</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>Detección de productos estacionales</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>Optimización de inversión en inventario</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                <div class="order-2 lg:order-1" data-animate="fade-in-right">
+                    <div class="bg-purple-50 p-8 rounded-2xl">
+                        <i class="fas fa-chart-pie text-6xl text-purple-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-4">Dashboard que te informa en 30 segundos</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Visualiza el rendimiento de tu tienda de un vistazo. Ventas del día, 
+                            productos más vendidos, ganancias mensuales y alertas importantes.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>Reportes de ventas diarios, semanales y mensuales</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>Top 10 productos más vendidos</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>Gráficos de tendencias claras</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>Exportación a PDF y Excel</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2" data-animate="fade-in-left">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" 
+                         alt="Dashboard" 
+                         class="rounded-2xl shadow-2xl w-full">
+                </div>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-animate="fade-in-right">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop" 
+                         alt="Seguridad" 
+                         class="rounded-2xl shadow-2xl w-full">
+                </div>
+                <div data-animate="fade-in-left">
+                    <div class="bg-gray-50 p-8 rounded-2xl">
+                        <i class="fas fa-shield-alt text-6xl text-primary mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-4">Tus datos, protegidos como en un banco</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Sabemos que tu información es vital. Por eso usamos encriptación de nivel 
+                            bancario, copias de seguridad automáticas cada hora y servidores 100% disponibles.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>Encriptación SSL de 256-bit</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>Backups automáticos cada hora</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>99.9% de uptime garantizado</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-secondary text-xl"></i>
+                                <span>Cumplimiento con normativas de protección de datos</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section id="como-funciona" class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-animate="fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Comienza en 3 simples pasos</h2>
+                <p class="text-lg text-gray-600">Sin instalaciones complicadas. Sin capacitación larga.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <!-- Connection Line -->
+                <div class="hidden md:block absolute top-1/4 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary opacity-30"></div>
+                
+                <div class="relative text-center" data-animate="fade-in-up" data-delay="0">
+                    <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 relative z-10 shadow-xl">
+                        01
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Regístrate gratis</h3>
+                    <p class="text-gray-600">Crea tu cuenta en menos de 2 minutos. Sin tarjeta de crédito.</p>
+                </div>
+
+                <div class="relative text-center" data-animate="fade-in-up" data-delay="100">
+                    <div class="w-20 h-20 bg-secondary text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 relative z-10 shadow-xl">
+                        02
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Sube tus productos</h3>
+                    <p class="text-gray-600">Importa tu inventario desde Excel o regístralos manualmente.</p>
+                </div>
+
+                <div class="relative text-center" data-animate="fade-in-up" data-delay="200">
+                    <div class="w-20 h-20 bg-accent text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 relative z-10 shadow-xl">
+                        03
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">¡Listo!</h3>
+                    <p class="text-gray-600">Comienza a vender y deja que la IA aprenda de tus patrones.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all transform hover:scale-105 shadow-xl">
+                    Comenzar prueba gratis →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="precios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-animate="fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Planes simples y transparentes</h2>
+                <p class="text-lg text-gray-600">Sin costos ocultos. Sin contratos forzosos. Crece a tu ritmo.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Basic Plan -->
+                <div class="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300" data-animate="fade-in-up" data-delay="0">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">Básico</h3>
+                        <p class="text-gray-600 mb-4">Para tiendas que comienzan</p>
+                        <div class="text-4xl font-bold text-primary mb-2">$29<span class="text-lg text-gray-600 font-normal">/mes</span></div>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Hasta 500 productos</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Gestión de inventario básica</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>1 usuario</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Soporte por email</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Reportes semanales</span>
+                        </li>
+                    </ul>
+                    <button class="w-full border-2 border-primary text-primary py-3 rounded-lg font-semibold hover:bg-blue-50 transition-all">
+                        Elegir Plan
+                    </button>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="bg-gradient-to-br from-primary to-blue-600 rounded-2xl p-8 shadow-2xl transform scale-105 relative" data-animate="fade-in-up" data-delay="100">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-accent text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        Más Popular
+                    </div>
+                    <div class="text-center mb-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Profesional</h3>
+                        <p class="text-blue-100 mb-4">El más completo</p>
+                        <div class="text-4xl font-bold mb-2">$59<span class="text-lg text-blue-100 font-normal">/mes</span></div>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-white">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span>Productos ilimitados</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span>Predicción de demanda con IA</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span>3 usuarios</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span>Soporte prioritario 24/7</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span>App móvil incluida</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span>Integración WhatsApp Business</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-white text-primary py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all shadow-lg">
+                        Elegir Plan
+                    </button>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300" data-animate="fade-in-up" data-delay="200">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">Empresarial</h3>
+                        <p class="text-gray-600 mb-4">Para cadenas de tiendas</p>
+                        <div class="text-4xl font-bold text-primary mb-2">$129<span class="text-lg text-gray-600 font-normal">/mes</span></div>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Todo lo de Profesional</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Usuarios ilimitados</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Múltiples sucursales</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>API de integración</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Gerente de cuenta dedicado</span>
+                        </li>
+                    </ul>
+                    <button class="w-full border-2 border-primary text-primary py-3 rounded-lg font-semibold hover:bg-blue-50 transition-all">
+                        Contactar Ventas
+                    </button>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-6 py-3 rounded-full">
+                    <i class="fas fa-shield-alt"></i>
+                    <span class="font-semibold">Garantía de 30 días - Si no estás satisfecho, te devolvemos tu dinero</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonios" class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-animate="fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Historias de éxito reales</h2>
+                <p class="text-lg text-gray-600">Más de 500 minimarkets ya transformaron su negocio</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg" data-animate="fade-in-up" data-delay="0">
+                    <div class="flex text-accent mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Antes perdía alrededor de $200 al mes en productos vencidos. Con las alertas de Tienda Doña Elena, eso bajó a casi cero."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-gray-600"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">María González</div>
+                            <div class="text-sm text-gray-500">Minimarket La Esquina, Bogotá</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg" data-animate="fade-in-up" data-delay="100">
+                    <div class="flex text-accent mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6">"La predicción de demanda es increíble. El sistema me avisó que debía comprar más gaseosas antes del verano, y acertó. Vendí un 40% más."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-gray-600"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Carlos Mendoza</div>
+                            <div class="text-sm text-gray-500">Tienda Don Carlos, Medellín</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg" data-animate="fade-in-up" data-delay="200">
+                    <div class="flex text-accent mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Soy de la vieja escuela, pensé que sería complicado, pero es tan fácil que mi esposa y yo lo usamos sin problemas."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-gray-600"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Roberto Silva</div>
+                            <div class="text-sm text-gray-500">Minimarket El Descuento, Cali</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 grid grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-4xl font-bold text-primary mb-2">85%</div>
+                    <div class="text-gray-600">Menos productos vencidos</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-4xl font-bold text-secondary mb-2">30%</div>
+                    <div class="text-gray-600">Mejor rotación de inventario</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-4xl font-bold text-accent mb-2">25%</div>
+                    <div class="text-gray-600">Más ganancias en 6 meses</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-animate="fade-in-up">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Preguntas frecuentes</h2>
+                <p class="text-lg text-gray-600">Resolvemos tus dudas</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
+                        <span class="font-semibold">¿Necesito saber de tecnología para usarlo?</span>
+                        <i class="fas fa-chevron-down transform transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white">
+                        <p class="text-gray-600">Para nada. Diseñamos Tienda Doña Elena pensando en dueños de tienda, no en expertos en tecnología. Si sabes usar WhatsApp, puedes usar nuestra plataforma.</p>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
+                        <span class="font-semibold">¿Puedo migrar mis datos de mi sistema actual?</span>
+                        <i class="fas fa-chevron-down transform transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white">
+                        <p class="text-gray-600">Sí. Puedes importar tu inventario desde un archivo Excel o CSV en minutos. Si usas otro software, nuestro equipo de soporte te ayuda con la migración sin costo adicional.</p>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
+                        <span class="font-semibold">¿Funciona sin internet?</span>
+                        <i class="fas fa-chevron-down transform transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white">
+                        <p class="text-gray-600">Necesitas conexión a internet para sincronizar datos, pero nuestra app móvil permite registrar ventas offline y se sincroniza automáticamente cuando recuperas la conexión.</p>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
+                        <span class="font-semibold">¿Qué pasa si supero el límite de productos de mi plan?</span>
+                        <i class="fas fa-chevron-down transform transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white">
+                        <p class="text-gray-600">Te avisamos antes de que llegues al límite. Puedes upgrade a un plan superior en cualquier momento con un solo clic, y el cambio es inmediato.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-primary to-blue-700 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6">¿Listo para llevar tu minimarket al siguiente nivel?</h2>
+            <p class="text-xl text-blue-100 mb-10">Únete a más de 500 tiendas que ya usan Tienda Doña Elena. Comienza tu prueba gratis hoy.</p>
+            <button class="bg-white text-primary px-10 py-5 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-2xl mb-6">
+                Comenzar prueba gratis de 14 días →
+            </button>
+            <div class="flex flex-wrap items-center justify-center gap-6 text-blue-100 text-sm">
+                <span class="flex items-center gap-2"><i class="fas fa-check"></i> Sin tarjeta de crédito</span>
+                <span class="flex items-center gap-2"><i class="fas fa-check"></i> Configuración en 5 minutos</span>
+                <span class="flex items-center gap-2"><i class="fas fa-check"></i> Cancela cuando quieras</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-store text-3xl text-primary"></i>
+                        <span class="font-bold text-2xl">Tienda Doña Elena</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Transformando minimarkets en negocios inteligentes desde 2024.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Producto</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Características</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Precios</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Integraciones</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Actualizaciones</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Recursos</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Centro de ayuda</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Tutoriales</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Webinars</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Empresa</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Sobre nosotros</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contacto</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Trabaja con nosotros</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Prensa</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm">© 2026 Tienda Doña Elena. Todos los derechos reservados.</p>
+                <div class="flex gap-6 text-sm text-gray-400">
+                    <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+                    <a href="#" class="hover:text-white transition-colors">Términos</a>
+                    <a href="#" class="hover:text-white transition-colors">Cookies</a>
+                    <a href="#" class="hover:text-white transition-colors">Seguridad</a>
+                </div>
+            </div>
+
+            <div class="text-center mt-8 text-gray-500 text-sm">
+                Hecho con <i class="fas fa-heart text-red-500"></i> para los tenderos de Latinoamérica
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>
